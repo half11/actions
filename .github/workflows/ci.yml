@@ -1,6 +1,5 @@
 name: CI
 
-# Controls when the workflow will run
 on:
   push:
     branches: [ "main" ]
@@ -36,7 +35,7 @@ jobs:
               "prop_1": "Some value",  
               "prop_2": true
             }' >> context.json
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: context.json
           path: ./
