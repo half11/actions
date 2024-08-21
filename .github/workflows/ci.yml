@@ -36,3 +36,13 @@ jobs:
       - name: Debug GitHub context
         run: |
           echo " ${{ toJSON(github) }}"
+    
+  second_job:
+    # previous job name 'build'
+    # we can define multiple jobs using the array syntax: needs: [job1, job2].
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: I run only when build succeeds
+        run: echo Hi!
